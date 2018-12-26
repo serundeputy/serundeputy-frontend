@@ -5,7 +5,7 @@
   "author": "Geoff St. Pierre",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt -p 8898",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
