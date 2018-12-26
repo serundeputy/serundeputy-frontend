@@ -1,10 +1,12 @@
 <template>
-  <section class="container"/>
+  <AppHpContent/>
 </template>
 
 <script>
+import AppHpContent from '~/components/AppHpContent.vue'
+
 export default {
-  components: {}
+  components: { AppHpContent }
 }
 </script>
 

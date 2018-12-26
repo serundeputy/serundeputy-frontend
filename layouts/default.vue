@@ -1,19 +1,16 @@
 <template>
-  <container>
+  <div>
     <AppHeader/>
-    <AppHpContent/>
     <AppFooter/>
-  </container>
+  </div>
 </template>
 <script>
-import AppHeader from '~/components/AppHeader.vue'
-import AppHpContent from '~/components/AppHpContent.vue'
-import AppFooter from '~/components/AppFooter.vue'
+import AppHeader from '~/components/AppHeader/AppHeader.vue'
+import AppFooter from '~/components/AppFooter/AppFooter.vue'
 
 export default {
   components: {
     AppHeader,
-    AppHpContent,
     AppFooter
   }
 }

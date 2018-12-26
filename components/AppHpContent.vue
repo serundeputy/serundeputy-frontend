@@ -1,6 +1,6 @@
 <template>
   <div>
-    gff
+    ... Homepage Content ...
   </div>
 </template>
 <script>
