@@ -13,7 +13,7 @@
           class="post-data"
         >
           <div class="post-title">
-            <a :href="`/posts/${post.nid}`">
+            <a :href="`/${post._field_data.nid.entity.type}s/${post.nid}`">
               {{ post.node_title }}
             </a>
           </div>
@@ -21,7 +21,7 @@
             class="post-content"
             v-html="post.field_body[0].raw.safe_value"/>
           <div class="post-read-more">
-            <a :href="`/posts/${post.nid}`">
+            <a :href="`/${post._field_data.nid.entity.type}s/${post.nid}`">
               read more
             </a>
           </div>
@@ -35,7 +35,7 @@
           class="post-data"
         >
           <div class="post-title">
-            <a :href="`/posts/${post.nid}`">
+            <a :href="`/${post._field_data.nid.entity.type}s/${post.nid}`">
               {{ post.node_title }}
             </a>
           </div>
@@ -43,7 +43,7 @@
             class="post-content"
             v-html="post.field_body[0].raw.safe_value"/>
           <div class="post-read-more">
-            <a :href="`/posts/${post.nid}`">
+            <a :href="`/${post._field_data.nid.entity.type}s/${post.nid}`">
               read more
             </a>
           </div>
@@ -66,7 +66,6 @@ export default {
   },
   data() {
     return {
-      posts: {},
       firstTwo: {},
       lastTwo: {},
       numResults: {}
@@ -76,11 +75,9 @@ export default {
     return app.$axios
       .get('/api/views/homepage_recent_content', {})
       .then(res => {
-        console.log('\n\n\n------- results -------\n\n\n', res.data.results)
         const firstTwo = [res.data.results[0], res.data.results[1]]
         const lastTwo = [res.data.results[2], res.data.results[3]]
         return {
-          posts: res.data.results,
           firstTwo: firstTwo,
           lastTwo: lastTwo,
           numResults: res.data.count

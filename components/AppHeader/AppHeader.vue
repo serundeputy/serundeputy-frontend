@@ -45,10 +45,20 @@
         </div>
       </b-col>
     </b-row>
+    <b-row>
+      <b-col md="12">
+        <AppNav/>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 <script>
+import AppNav from '~/components/AppHeader/AppNav'
+
 export default {
+  components: {
+    AppNav
+  },
   head() {
     return {
       link: [
