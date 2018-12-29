@@ -1,7 +1,5 @@
 <template>
   <div>
-    <AppHeader/>
-    <AppFooter/>
     <nuxt/>
   </div>
 </template>
@@ -13,6 +11,11 @@ export default {
   components: {
     AppHeader,
     AppFooter
+  },
+  data() {
+    return {
+      posts: {}
+    }
   }
 }
 </script>
