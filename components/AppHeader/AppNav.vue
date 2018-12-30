@@ -5,7 +5,7 @@
     <b-nav pills>
       <b-nav-item href="/">{ Home }</b-nav-item>
       <b-nav-item href="/about">{ About }</b-nav-item>
-      <b-nav-item href="/archive">{ Archive }</b-nav-item>
+      <b-nav-item href="/archives">{ Archives }</b-nav-item>
       <b-nav-item href="/contributions">{ Contributions }</b-nav-item>
       <b-nav-item href="/writings">{ Writings }</b-nav-item>
       <b-nav-item-dropdown
