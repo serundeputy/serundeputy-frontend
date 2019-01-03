@@ -50,7 +50,30 @@
         </b-col>
       </b-row>
     </b-container>
-    <AppFooter/>
+    <b-container>
+      <b-row class="tweets-row-header">
+        <b-col md="12">
+          <a href="https://twitter.com/serundeputy">
+            <i class="fab fa-twitter"/> @serundeputy
+          </a>
+        </b-col>
+      </b-row>
+      <b-row class="tweets-row-tweets">
+        <b-col
+          v-for="tweet in tweets"
+          :key="`--${tweet.created_at}`"
+          class="tweets-row-tweets__tweet"
+          md="3"
+        >
+          <div class="tweet-date">
+            {{ tweet.created_at }}
+          </div>
+          <div class="tweet-text">
+            {{ tweet.text }}
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -68,24 +91,34 @@ export default {
     return {
       firstTwo: {},
       lastTwo: {},
-      numResults: {}
+      numResults: {},
+      tweets: 'gff is tweeter bst at.'
     }
   },
-  asyncData({ app }) {
-    return app.$axios
-      .get('/api/views/homepage_recent_content', {})
-      .then(res => {
-        const firstTwo = [res.data.results[0], res.data.results[1]]
-        const lastTwo = [res.data.results[2], res.data.results[3]]
-        return {
-          firstTwo: firstTwo,
-          lastTwo: lastTwo,
-          numResults: res.data.count
-        }
-      })
-      .catch(err => {
-        console.log(err)
-      })
+  async asyncData({ app }) {
+    const Twit = require('twit')
+    const config = {
+      consumer_key: 'z8UdqXeZirhKbcMOjYdEly8VO',
+      consumer_secret: 'VT9VsSrUyd488xLzIXl9pxtiKSxoZXZ47ZJ5xUgI7g9rj1w5CM',
+      access_token: '17496303-IMbrLVW6bzvcTLX1DkDnIxuPPvuNjRTktVttSu3WH',
+      access_token_secret: 'G3hIaO0JAO0yzHwr1hrfWZ0u6jk3TmK6MJOmxpRFPGZBX'
+      // callBackUrl: "/national-poetry-month"
+    }
+    const T = new Twit(config)
+    //let [pageRes] = await Promise.all([
+    let posts = await app.$axios.get('/api/views/homepage_recent_content', {})
+    let tweets = await T.get('statuses/user_timeline', {
+      screen_name: 'serundeputy',
+      count: 4
+    })
+
+    let firstTwo = [posts.data.results[0], posts.data.results[1]]
+    let lastTwo = [posts.data.results[2], posts.data.results[3]]
+    return {
+      firstTwo: firstTwo,
+      lastTwo: lastTwo,
+      tweets: tweets.data
+    }
   }
 }
 </script>

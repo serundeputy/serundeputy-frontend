@@ -61,6 +61,9 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      config.node = {
+        fs: 'empty'
+      }
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
