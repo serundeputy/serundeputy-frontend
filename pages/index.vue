@@ -66,7 +66,12 @@
           md="3"
         >
           <div class="tweet-date">
-            {{ tweet.created_at }}
+            <a
+              :href="`https://twitter.com/serundeputy/status/${tweet.id_str}`"
+              target="__youBe"
+            >
+              {{ niceDate(tweet.created_at) }}
+            </a>
           </div>
           <div class="tweet-text">
             {{ tweet.text }}
@@ -98,26 +103,50 @@ export default {
   async asyncData({ app }) {
     const Twit = require('twit')
     const config = {
-      consumer_key: 'z8UdqXeZirhKbcMOjYdEly8VO',
-      consumer_secret: 'VT9VsSrUyd488xLzIXl9pxtiKSxoZXZ47ZJ5xUgI7g9rj1w5CM',
-      access_token: '17496303-IMbrLVW6bzvcTLX1DkDnIxuPPvuNjRTktVttSu3WH',
-      access_token_secret: 'G3hIaO0JAO0yzHwr1hrfWZ0u6jk3TmK6MJOmxpRFPGZBX'
+      consumer_key: '',
+      consumer_secret: '',
+      access_token: '',
+      access_token_secret: ''
       // callBackUrl: "/national-poetry-month"
     }
     const T = new Twit(config)
     //let [pageRes] = await Promise.all([
     let posts = await app.$axios.get('/api/views/homepage_recent_content', {})
+    let firstTwo = [posts.data.results[0], posts.data.results[1]]
+    let lastTwo = [posts.data.results[2], posts.data.results[3]]
+
     let tweets = await T.get('statuses/user_timeline', {
       screen_name: 'serundeputy',
       count: 4
     })
-
-    let firstTwo = [posts.data.results[0], posts.data.results[1]]
-    let lastTwo = [posts.data.results[2], posts.data.results[3]]
+    console.log('\n\n\ntweets------------\n\n\n', tweets.data[0])
     return {
       firstTwo: firstTwo,
       lastTwo: lastTwo,
       tweets: tweets.data
+    }
+  },
+  methods: {
+    niceDate(date) {
+      let niceDate = new Date(date)
+      let months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+      ]
+      let preparedDate = niceDate.getDate()
+      let preparedMonth = months[niceDate.getMonth()]
+      let preparedYear = niceDate.getFullYear()
+      return preparedDate + ' ' + preparedMonth + ' ' + preparedYear
     }
   }
 }
@@ -150,5 +179,12 @@ export default {
   margin-top: 24px;
   padding-right: 12px;
   text-align: right;
+}
+.tweets-row-header {
+  margin: 9px;
+  border-bottom: 1px solid #eee;
+}
+.tweets-row-tweets__tweet {
+  min-height: 200px;
 }
 </style>
