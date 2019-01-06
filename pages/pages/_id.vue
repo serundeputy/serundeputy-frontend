@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <AppHeader/>
+  <div class="page-content">
     <b-container>
       <b-row>
         <b-col md="12">
-          {{ post.title }}
+          <h1> {{ post.title }} </h1>
         </b-col>
       </b-row>
       <b-row>
@@ -14,7 +13,6 @@
         />
       </b-row>
     </b-container>
-    <AppFooter/>
   </div>
 </template>
 <script>
@@ -45,4 +43,8 @@ export default {
 }
 </script>
 <style scoped>
+.page-content {
+  margin-top: 13px;
+  margin-bottom: 9px;
+}
 </style>

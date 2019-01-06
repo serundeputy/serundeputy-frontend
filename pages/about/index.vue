@@ -1,19 +1,15 @@
 <template>
-  <div>
-    <AppHeader/>
+  <div class="about-page">
     <b-container>
       <b-row>
-        <b-col md="12">
+        <b-col lg="12">
           <h1>{ About }</h1>
         </b-col>
       </b-row>
       <b-row>
-        <b-col md="12">
-          <h2>
-            { serundeputy }
-          </h2>
+        <b-col lg="12">
           <p>
-            In lots of places on the internet I am serundeputy. I like to write
+            In lots of places on the internet I am <strong>serundeputy</strong>. I like to write
             code in PHP, C++, javascript and some other languages.
           </p>
           <p>
@@ -33,28 +29,24 @@
                 that consumes the Backdrop data API.
               </li>
             </ul>
-
           </p>
         </b-col>
       </b-row>
     </b-container>
-    <AppFooter/>
   </div>
 </template>
 <script>
-import AppHeader from '~/components/AppHeader/AppHeader'
-import AppFooter from '~/components/AppFooter/AppFooter'
-
 export default {
   layout: 'homepage',
-  components: {
-    AppHeader,
-    AppFooter
-  },
+  components: {},
   data() {
     return {}
   }
 }
 </script>
 <style scoped>
+.about-page {
+  margin-top: 13px;
+  min-height: 604px;
+}
 </style>

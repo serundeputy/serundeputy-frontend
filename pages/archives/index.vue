@@ -1,6 +1,5 @@
 <template>
   <div>
-    <AppHeader/>
     <b-container
       class="posts-container"
     >
@@ -17,17 +16,16 @@
             </a>
           </div>
           <div
-            class="post-content"
-            v-html="post._field_data.nid.entity.name"/>
+            class="post-body"
+            v-html="firstPara(post._field_data.nid.entity.body.und[0].value)"/>
           <div class="post-read-more">
             <a :href="`/${post._field_data.nid.entity.type}s/${post.nid}`">
-              read more
+              *read more
             </a>
           </div>
         </b-col>
       </b-row>
     </b-container>
-    <AppFooter/>
   </div>
 </template>
 <script>
@@ -68,6 +66,14 @@ export default {
       .catch(err => {
         console.log(err)
       })
+  },
+  methods: {
+    firstPara(body) {
+      console.log('\n\n------------body--------\n\n', body)
+      let firstPara = body.split('</p>')
+      firstPara = firstPara[0] + '</p>'
+      return firstPara
+    }
   }
 }
 </script>
@@ -76,16 +82,22 @@ export default {
   padding: 14px;
 }
 .post-row {
-  padding-bottom: 9px;
   margin-bottom: 9px;
-  border-bottom: 1px solid #ccc;
 }
 .post-data {
-  background-color: #eee;
+  padding-top: 11px;
+  padding-right: 44px;
+  padding-bottom: 11px;
+  padding-left: 44px;
+  background-color: #f5f7f9;
+  margin-bottom: 8px;
 }
 .post-title {
   margin: 6px;
   font-size: 2rem;
+}
+.post-title a {
+  color: #4a4a4a;
 }
 .post-content {
   font-size: 1em;
@@ -94,5 +106,10 @@ export default {
   margin-top: 24px;
   padding-right: 12px;
   text-align: right;
+}
+.post-read-more a {
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #931621;
 }
 </style>

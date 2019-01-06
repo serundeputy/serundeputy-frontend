@@ -1,63 +1,43 @@
 <template>
-  <b-container
-    fluid
-    class="header">
-    <b-row>
-      <b-col
-        class="header__title"
-        md="7"
-      >
-        <a href="/">
-          { serundeputy }
-        </a>
-      </b-col>
-      <b-col
-        class="header__icons"
-        md="5"
-      >
-        <div class="backdrop-icon">
-          <a href="https://backdropcms.org/account/serundeputy">
-            <img
-              class="backdrop-icon-img"
-              src="~/assets/Backdrop-Logo-Mark-White.png">
-          </a>
-        </div>
-        <div class="drupal-icon">
-          <a href="https://www.drupal.org/u/serundeputy">
-            <i class="fab fa-drupal"/>
-          </a>
-        </div>
-        <div class="laravel-icon">
-          <i class="fab fa-laravel"/>
-        </div>
-        <div class="nodejs-icon">
-          <i class="fab fa-node"/>
-        </div>
-        <div class="twitter-icon">
-          <a href="https://twitter.com/serundeputy">
-            <i class="fab fa-twitter"/>
-          </a>
-        </div>
-        <div class="github-icon">
-          <a href="https://github.com/serundeputy">
-            <i class="fab fa-github"/>
-          </a>
-        </div>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col md="12">
-        <AppNav/>
-      </b-col>
-    </b-row>
-  </b-container>
+  <div class="site-header">
+    <b-container
+      class="header-container">
+      <b-row>
+        <b-col md="2">
+          <AppLogo/>
+        </b-col>
+        <b-col md="10">
+          <b-container>
+            <b-row>
+              <b-col>
+                <AppName/>
+              </b-col>
+            </b-row>
+            <b-row>
+              <b-col>
+                <AppLogos/>
+              </b-col>
+            </b-row>
+          </b-container>
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-container
+      fluid
+      class="header__underline"
+    />
+  </div>
 </template>
 <script>
-import AppNav from '~/components/AppHeader/AppNav'
+import AppLogo from '~/components/AppHeader/AppLogo'
+import AppName from '~/components/AppHeader/AppName'
+import AppLogos from '~/components/AppHeader/AppLogos'
 
 export default {
   components: {
-    AppNav
+    AppLogo,
+    AppName,
+    AppLogos
   },
   head() {
     return {
@@ -75,43 +55,16 @@ export default {
 }
 </script>
 <style scoped>
-.header {
-  color: #fff;
+.site-header {
+  margin-top: 6px;
 }
-.header__title,
-.header__icons {
-  background-color: #36345e;
+.header-container {
+  margin: 0 auto;
 }
-.header__title {
-  font-size: 111px;
-}
-.header__title a {
-  color: #fff;
-}
-.header__icons {
-  padding-top: 58px;
-}
-.header__icons .backdrop-icon a img {
-  vertical-align: unset;
-  position: relative;
-  top: 6px;
-  width: 44px;
-}
-.header__icons .backdrop-icon,
-.header__icons .drupal-icon,
-.header__icons .laravel-icon,
-.header__icons .nodejs-icon,
-.header__icons .twitter-icon,
-.header__icons .github-icon {
-  display: inline;
-  margin: 7px;
-  font-size: 44px;
-  color: #fff;
-}
-.header__icons .backdrop-icon a,
-.header__icons .drupal-icon a,
-.header__icons .twitter-icon a,
-.header__icons .github-icon a {
-  color: #fff;
+.header__underline {
+  margin-top: 11px;
+  margin-bottom: 22px;
+  height: 3px;
+  background-color: #d8d8d8;
 }
 </style>
