@@ -1,7 +1,7 @@
 <template>
-  <b-container class="contributions-page">
-    <h1 class="contributions-page__title"> {{ contributions.title }} </h1>
-    <b-container v-html="imgUrl(contributions.body.und[0].value)"/>
+  <b-container class="writings-page">
+    <h1 class="writings-page__title"> {{ writings.title }} </h1>
+    <b-container v-html="imgUrl(writings.body.und[0].value)"/>
   </b-container>
 </template>
 <script>
@@ -12,13 +12,13 @@ export default {
   components: {},
   data() {
     return {
-      contributions: {}
+      writings: {}
     }
   },
   async asyncData({ app }) {
-    return app.$axios.get('/api/node/page/26').then(res => {
+    return app.$axios.get('/api/node/page/24').then(res => {
       return {
-        contributions: res.data
+        writings: res.data
       }
     })
   },
@@ -30,11 +30,11 @@ export default {
 }
 </script>
 <style scoped>
-.contributions-page {
+.writings-page {
   margin-top: 18px;
   min-height: 604px;
 }
-.contributions-page__title {
+.writings-page__title {
   margin-bottom: 33px;
 }
 </style>
