@@ -11,15 +11,21 @@
           class="events-page__event-body"
           v-html="imgUrl(event._field_data.nid.entity.body.und[0].value)"/>
       </b-col>
+      <div class="hashtag">
+        <AppHashtag/>
+      </div>
     </b-row>
   </b-container>
 </template>
 <script>
 import imgUrl from '~/plugins/inContentImagesUrl'
+import AppHashtag from '~/components/AppHashtag'
 
 export default {
   layout: 'homepage',
-  components: {},
+  components: {
+    AppHashtag
+  },
   data() {
     return {
       events: {}
@@ -27,7 +33,7 @@ export default {
   },
   asyncData({ app }) {
     return app.$axios
-      .get('/api/views/events_upcoming_api', {})
+      .get('/api/views/events_past_api', {})
       .then(res => {
         return {
           events: res.data.results
@@ -48,5 +54,12 @@ export default {
 .events-page__event {
   padding: 14px;
   background-color: #f5f7f9;
+}
+.hashtag {
+  width: 127%;
+  background-color: #fff;
+  margin: 0 auto;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 </style>

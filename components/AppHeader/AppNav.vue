@@ -17,9 +17,7 @@
         right
       >
         <b-dropdown-item href="/events/past">{ Past }</b-dropdown-item>
-        <b-dropdown-item href="/events/upcoming">{ Upcoming }</b-dropdown-item>
-        <b-dropdown-divider/>
-        <b-dropdown-item>three</b-dropdown-item>
+        <b-dropdown-item href="/events">{ Upcoming }</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-nav>
   </b-container>
