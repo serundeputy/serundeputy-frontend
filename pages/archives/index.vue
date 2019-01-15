@@ -69,7 +69,6 @@ export default {
   },
   methods: {
     firstPara(body) {
-      console.log('\n\n------------body--------\n\n', body)
       let firstPara = body.split('</p>')
       firstPara = firstPara[0] + '</p>'
       return firstPara
