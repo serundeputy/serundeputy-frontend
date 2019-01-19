@@ -11,7 +11,7 @@
           class="post-data"
         >
           <div class="post-title">
-            <a :href="`/${post._field_data.nid.entity.type}s/${post.nid}`">
+            <a :href="`/${post._field_data.nid.entity.path.alias}`">
               {{ post.node_title }}
             </a>
           </div>
@@ -19,7 +19,7 @@
             class="post-body"
             v-html="firstPara(post._field_data.nid.entity.body.und[0].value)"/>
           <div class="post-read-more">
-            <a :href="`/${post._field_data.nid.entity.type}s/${post.nid}`">
+            <a :href="`/${post._field_data.nid.entity.path.alias}`">
               *read more
             </a>
           </div>

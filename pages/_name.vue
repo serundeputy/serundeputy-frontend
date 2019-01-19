@@ -29,8 +29,9 @@ export default {
     return {}
   },
   asyncData({ app, params }) {
+    console.log('\n\ngff is the best\n\n\n\n', params)
     return app.$axios
-      .get(`/api/node/page/${params.id}`, {})
+      .get(`/api/router/${params.name}`, {})
       .then(res => {
         return {
           post: res.data

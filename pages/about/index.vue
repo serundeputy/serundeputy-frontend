@@ -33,6 +33,34 @@
         </b-col>
       </b-row>
     </b-container>
+    <b-container>
+      <b-row class="tweets-row-header">
+        <b-col md="12">
+          <a href="https://twitter.com/serundeputy">
+            <i class="fab fa-twitter"/> @serundeputy
+          </a>
+        </b-col>
+      </b-row>
+      <b-row class="tweets-row-tweets">
+        <b-col
+          v-for="tweet in tweets"
+          :key="`--${tweet.created_at}`"
+          class="tweets-row-tweets__tweet"
+          md="3"
+        >
+          <div class="tweet-date">
+            <a
+              :href="`https://twitter.com/serundeputy/status/${tweet.id_str}`"
+              target="__youBe">
+              {{ niceDate(tweet.created_at) }}
+            </a>
+          </div>
+          <div class="tweet-text">
+            {{ tweet.text }}
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 <script>
@@ -41,6 +69,50 @@ export default {
   components: {},
   data() {
     return {}
+  },
+  async asyncData({ app }) {
+    const Twit = require('twit')
+    const config = {
+      consumer_key: process.env.TWIT_CONSUMER_KEY,
+      consumer_secret: process.env.TWIT_CONSUMER_SECRET,
+      access_token: process.env.TWIT_ACCESS_TOKEN,
+      access_token_secret: process.env.TWIT_TOKEN_SECRET
+    }
+    const T = new Twit(config)
+    let tweets = await T.get('statuses/user_timeline', {
+      screen_name: 'serundeputy',
+      count: 4
+    })
+
+    return {
+      tweets: tweets.data
+    }
+  },
+  methods: {
+    niceDate(date) {
+      let niceDate = new Date(date)
+      let months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+      ]
+      let preparedDate = niceDate.getDate()
+      let preparedMonth = months[niceDate.getMonth()]
+      let preparedYear = niceDate.getFullYear()
+      return preparedDate + ' ' + preparedMonth + ' ' + preparedYear
+    },
+    imgUrl(content) {
+      return imgUrl.imgUrl(content)
+    }
   }
 }
 </script>
@@ -48,5 +120,13 @@ export default {
 .about-page {
   margin-top: 13px;
   min-height: 604px;
+}
+/* background of tweets purple: #4c4b63 */
+.tweets-row-header {
+  margin: 9px;
+  border-bottom: 1px solid #eee;
+}
+.tweets-row-tweets__tweet {
+  min-height: 200px;
 }
 </style>
