@@ -49,7 +49,7 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'http://serundeputy.lndo.site',
+    baseURL: process.env.API_URL || 'http://serundeputy.lndo.site',
     debug: true
   },
 

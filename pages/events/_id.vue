@@ -31,7 +31,7 @@ export default {
   },
   asyncData({ app, params }) {
     return app.$axios
-      .get(`/api/node/event/${params.id}`, {})
+      .get(`/api/router/${params.id}`, {})
       .then(res => {
         return {
           post: res.data

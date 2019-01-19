@@ -9,22 +9,18 @@
       <b-row>
         <b-col
           md="12"
-          v-html="post.body.und[0].value"
+          v-html="imgUrl(post.body.und[0].value)"
         />
       </b-row>
     </b-container>
   </div>
 </template>
 <script>
-import AppHeader from '~/components/AppHeader/AppHeader'
-import AppFooter from '~/components/AppFooter/AppFooter'
+import imgUrl from '~/plugins/inContentImagesUrl'
 
 export default {
   layout: 'homepage',
-  components: {
-    AppHeader,
-    AppFooter
-  },
+  components: {},
   data() {
     return {}
   },
@@ -40,6 +36,11 @@ export default {
       .catch(err => {
         console.log(err)
       })
+  },
+  methods: {
+    imgUrl(content) {
+      return imgUrl.imgUrl(content)
+    }
   }
 }
 </script>
