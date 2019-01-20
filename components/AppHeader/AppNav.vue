@@ -29,7 +29,8 @@ a#nav7_ddown__BV_button span {
   text-transform: lowercase;
 }
 /* Active links are red #931621 */
-a:active {
-  color: #931621;
+a.active {
+  background-color: #fff;
+  color: #931621 !important;
 }
 </style>

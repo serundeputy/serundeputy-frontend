@@ -8,11 +8,11 @@
       </b-row>
       <b-row>
         <b-col lg="12">
-          <p>
+          <div>
             In lots of places on the internet I am <strong>serundeputy</strong>. I like to write
             code in PHP, C++, javascript and some other languages.
-          </p>
-          <p>
+          </div>
+          <div>
             This site is made with:
             <ul>
               <li>
@@ -29,7 +29,7 @@
                 that consumes the Backdrop data API.
               </li>
             </ul>
-          </p>
+          </div>
         </b-col>
       </b-row>
     </b-container>
