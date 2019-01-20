@@ -10,15 +10,7 @@
       <b-nav-item href="/archives">{ Archives }</b-nav-item>
       <b-nav-item href="/contributions">{ Contributions }</b-nav-item>
       <b-nav-item href="/writings">{ Writings }</b-nav-item>
-      <b-nav-item-dropdown
-        id="nav7_ddown"
-        text="{ Events }"
-        extra-toggle-classes="nav-link-custom"
-        right
-      >
-        <b-dropdown-item href="/events/past">{ Past }</b-dropdown-item>
-        <b-dropdown-item href="/events">{ Upcoming }</b-dropdown-item>
-      </b-nav-item-dropdown>
+      <b-nav-item href="/events">{ Events }</b-nav-item>
     </b-nav>
   </b-container>
 </template>
@@ -37,4 +29,7 @@ a#nav7_ddown__BV_button span {
   text-transform: lowercase;
 }
 /* Active links are red #931621 */
+a:active {
+  color: #931621;
+}
 </style>

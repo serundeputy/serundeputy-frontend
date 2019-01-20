@@ -45,6 +45,9 @@ export default {
 }
 </script>
 <style scoped>
+h1 {
+  margin-bottom: 32px;
+}
 .page-content {
   margin-top: 13px;
   margin-bottom: 9px;

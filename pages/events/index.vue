@@ -1,5 +1,6 @@
 <template>
   <b-container class="events-page">
+    <EventsNav/>
     <b-row
       v-for="event in events"
       :key="event.title"
@@ -16,10 +17,13 @@
 </template>
 <script>
 import imgUrl from '~/plugins/inContentImagesUrl'
+import EventsNav from '~/components/EventsNav'
 
 export default {
   layout: 'homepage',
-  components: {},
+  components: {
+    EventsNav
+  },
   data() {
     return {
       events: {}

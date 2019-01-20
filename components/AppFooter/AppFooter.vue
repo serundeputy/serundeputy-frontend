@@ -1,37 +1,96 @@
 <template>
   <footer class="l-footer">
-    <div class="block-content">
-      <div class="serundeputy-footer">
-        <div class="duck-in-a-box">
-          <img
-            class="duck-box-img"
-            src="~/assets/duck_in_a_box.png">
-        </div>
-        <div class="serundeputy-credits">
-          <p>
-            Made with <a href="https://backdropcms.org">Backdrop CMS</a> and
-            <a href="https://nuxtjs.org/">Nuxt</a>
-          </p>
-          <p>Built by @serundeputy and @saintlynn16 </p>
-          <p>Designed by @saintlynn16</p>
-        </div>
-      </div>
-    </div>
+    <b-container
+      class="tweets">
+      <b-row class="tweets-row-header">
+        <b-col md="12">
+          <a href="https://twitter.com/serundeputy">
+            <i class="fab fa-twitter"/> @serundeputy
+          </a>
+        </b-col>
+      </b-row>
+      <b-row class="tweets-row-tweets">
+        <b-col
+          v-for="tweet in $store.state.tweets"
+          :key="`--${tweet.created_at}`"
+          class="tweets-row-tweets__tweet"
+          md="3"
+        >
+          <div class="tweet-date">
+            <a
+              :href="`https://twitter.com/serundeputy/status/${tweet.id_str}`"
+              target="__youBe">
+              {{ niceDate(tweet.created_at) }}
+            </a>
+          </div>
+          <div class="tweet-text">
+            {{ tweet.text }}
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-container
+      class="footer__below-tweets">
+      <b-row>
+        <b-col xl="9">
+          #backdropintheevening
+        </b-col>
+        <b-col xl="3">
+          *made with backdrop and nuxt
+        </b-col>
+      </b-row>
+    </b-container>
   </footer>
 </template>
 <script>
+export default {
+  layout: 'homepage',
+  components: {},
+  methods: {
+    niceDate(date) {
+      let niceDate = new Date(date)
+      let months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+      ]
+      let preparedDate = niceDate.getDate()
+      let preparedMonth = months[niceDate.getMonth()]
+      let preparedYear = niceDate.getFullYear()
+      return preparedDate + ' ' + preparedMonth + ' ' + preparedYear
+    }
+  }
+}
 </script>
 <style scoped>
-.l-footer {
-  background-color: #36345e;
-  text-align: center;
+.tweets {
+  padding: 16px;
+  background-color: #4c4b63;
   color: #fff;
 }
-.l-footer a {
-  color: #fff;
+.tweets-row-tweets__tweet:not(:last-child) {
+  border-right: solid 1px #ccc;
 }
-.block-content div {
-  display: inline-block;
-  vertical-align: top;
+.tweet-date {
+  margin-bottom: 17px;
+}
+.tweets a {
+  color: #fff;
+  font-weight: 800;
+}
+.tweets-row-header {
+  margin-bottom: 16px;
+}
+.footer__below-tweets {
+  font-weight: 500;
 }
 </style>
