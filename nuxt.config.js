@@ -42,7 +42,8 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/google-analytics'
   ],
   /*
   ** Axios module configuration
@@ -51,6 +52,9 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
     baseURL: process.env.API_URL || 'http://serundeputy.lndo.site',
     debug: true
+  },
+  'google-analytics': {
+    id: 'UA-71719888-1'
   },
 
   /*
