@@ -2,11 +2,6 @@
   <div class="page-content">
     <b-container>
       <b-row>
-        <b-col md="12">
-          <h1> {{ post.title }} </h1>
-        </b-col>
-      </b-row>
-      <b-row>
         <b-col
           md="12"
           v-html="imgUrl(post.body.und[0].value)"
@@ -51,5 +46,7 @@ h1 {
 .page-content {
   margin-top: 13px;
   margin-bottom: 9px;
+  padding-top: 2%;
+  background: #f5f7f9;
 }
 </style>

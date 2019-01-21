@@ -25,12 +25,12 @@ export default {}
 }
 a,
 a#nav7_ddown__BV_button span {
-  color: #4a4a4a !important;
+  color: #4a4a4a;
   text-transform: lowercase;
 }
 /* Active links are red #931621 */
-a.active {
+.nav-link:hover {
   background-color: #fff;
-  color: #931621 !important;
+  color: #931621;
 }
 </style>

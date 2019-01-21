@@ -2,11 +2,6 @@
   <div class="page-content">
     <b-container>
       <b-row>
-        <b-col md="12">
-          <h1> {{ post.title }} </h1>
-        </b-col>
-      </b-row>
-      <b-row>
         <b-col
           md="12"
           v-html="post.body.und[0].value"

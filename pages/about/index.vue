@@ -3,11 +3,6 @@
     <b-container>
       <b-row>
         <b-col lg="12">
-          <h1>{ About }</h1>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col lg="12">
           <div>
             In lots of places on the internet I am <strong>serundeputy</strong>. I like to write
             code in PHP, C++, javascript and some other languages.
@@ -54,5 +49,7 @@ export default {
 .about-page {
   margin-top: 13px;
   min-height: 404px;
+  padding-top: 2%;
+  background: #f5f7f9;
 }
 </style>
