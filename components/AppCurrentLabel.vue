@@ -11,11 +11,12 @@ export default {
     if (path.length == 3) {
       path = path[2]
     } else if (path.length == 2) {
-      path = path[1]
-    } else {
-      path = 'home'
+      if (path[1] === '') {
+        path = 'home'
+      } else {
+        path = path[1]
+      }
     }
-    console.log(path)
     const myRoutes = {
       home: '*latest writings',
       about: '*about',
