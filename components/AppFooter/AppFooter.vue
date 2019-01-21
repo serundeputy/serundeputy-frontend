@@ -1,6 +1,7 @@
 <template>
   <footer class="l-footer">
     <b-container
+      fluid
       class="tweets">
       <b-row class="tweets-row-header">
         <b-col md="12">
@@ -30,6 +31,7 @@
       </b-row>
     </b-container>
     <b-container
+      fluid
       class="footer__below-tweets">
       <b-row>
         <b-col xl="9">
@@ -72,8 +74,14 @@ export default {
 }
 </script>
 <style scoped>
+.l-footer {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
 .tweets {
-  padding: 16px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 4.5%;
   background-color: #4c4b63;
   color: #fff;
 }

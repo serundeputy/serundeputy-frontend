@@ -3,12 +3,12 @@
     <b-nav-item
       href="/events"
     >
-      { Upcoming Events }
+      { upcoming events }
     </b-nav-item>
     <b-nav-item
       href="/events/past"
     >
-      { Past Events }
+      { past events }
     </b-nav-item>
   </b-nav>
 </template>

@@ -9,10 +9,10 @@
         <b-col lg="2">
           <AppNav/>
         </b-col>
-        <b-col lg="9">
+        <b-col lg="8">
           <nuxt/>
         </b-col>
-        <b-col lg="1">
+        <b-col lg="2">
           <AppCurrentLabel/>
         </b-col>
       </b-row>

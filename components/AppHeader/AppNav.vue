@@ -19,9 +19,9 @@ export default {}
 </script>
 <style scoped>
 .nav-container {
-  font-size: 1.8em;
+  font-size: 1.6em;
   text-align: center;
-  margin: 0 36%;
+  margin-left: 7%;
 }
 a,
 a#nav7_ddown__BV_button span {

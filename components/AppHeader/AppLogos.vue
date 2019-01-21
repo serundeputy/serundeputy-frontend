@@ -100,7 +100,7 @@
   display: inline;
   margin: 7px;
   font-size: 44px;
-  color: #36345e;
+  color: #4c4b63;
 }
 .header__icons .lando-icon a,
 .header__icons .backdrop-icon a,
@@ -108,6 +108,6 @@
 .header__icons .twitter-icon a,
 .header__icons .github-icon a,
 .header__icons .youtube-icon a {
-  color: #36345e;
+  color: #4c4b63;
 }
 </style>

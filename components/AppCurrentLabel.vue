@@ -31,10 +31,10 @@ export default {
 .site-current-page-label {
   white-space: nowrap;
   position: relative;
-  right: 120%;
-  top: 74px;
+  right: 43%;
+  top: 95px;
   transform: rotate(90deg);
-  font-size: 2.2em;
+  font-size: 2.6em;
   font-weight: 500;
   color: #931621;
 }
