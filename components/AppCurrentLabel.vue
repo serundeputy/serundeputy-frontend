@@ -44,4 +44,9 @@ export default {
   font-weight: 500;
   color: #931621;
 }
+@media (min-width: 0px) and (max-width: 1024px) {
+  .site-current-page-label {
+    display: none;
+  }
+}
 </style>

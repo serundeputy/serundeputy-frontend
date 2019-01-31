@@ -17,6 +17,11 @@ export default {
   font-size: 8em;
   text-align: center;
 }
+@media (min-width: 0px) and (max-width: 1024px) {
+  .site-name {
+    font-size: 3em;
+  }
+}
 .site-name__underline {
   width: 68%;
   height: 3px;
