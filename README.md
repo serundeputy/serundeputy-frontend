@@ -20,3 +20,17 @@ $ yarn run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+Deploy
+------
+
+```bash
+git fetch
+git merge origin/master
+yarn
+yarn run build
+# find nuxt start pid && kill <pid>
+# find node/nuxt pid && kill <pid>
+# start nuxt server and run in background.
+nohup yarn start &
+```
