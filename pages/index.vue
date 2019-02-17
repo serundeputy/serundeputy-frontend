@@ -104,6 +104,11 @@ export default {
   max-height: 383px;
   overflow: hidden;
 }
+.post-content /deep/ img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
 .post-read-more {
   margin-top: 24px;
   padding-right: 12px;

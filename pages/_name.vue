@@ -1,6 +1,10 @@
 <template>
   <div class="page-content">
     <b-container>
+      <b-row
+        md="12">
+        <h1 class="post__title">{{ post.title }}</h1>
+      </b-row>
       <b-row>
         <b-col
           md="12"
@@ -42,11 +46,16 @@ export default {
 <style scoped>
 h1 {
   margin-bottom: 32px;
+  text-align: center;
 }
 .page-content {
   margin-top: 13px;
   margin-bottom: 9px;
   padding-top: 2%;
   background: #f5f7f9;
+}
+.page-content /deep/ img {
+  display: block;
+  margin: 0 auto;
 }
 </style>
