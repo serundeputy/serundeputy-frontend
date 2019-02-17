@@ -58,4 +58,7 @@ h1 {
   display: block;
   margin: 0 auto;
 }
+.page-content /deep/ img.writings__image {
+  display: inline-block;
+}
 </style>

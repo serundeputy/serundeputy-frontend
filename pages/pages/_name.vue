@@ -42,4 +42,7 @@ export default {
   margin-top: 13px;
   margin-bottom: 9px;
 }
+/deep/ .page-content p img.writings__image {
+  display: inline-block !important;
+}
 </style>
