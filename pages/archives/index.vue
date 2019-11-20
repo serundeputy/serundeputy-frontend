@@ -57,11 +57,10 @@ export default {
     return app.$axios
       .get(resUrl, {})
       .then(res => {
+        console.log(res.data)
         const archives = res.data.results
         const currentPage = res.data.current_page
-        const totalPages = Math.ceil(
-          res.data.total_items / res.data.items_per_page
-        )
+        const totalPages = res.data.total_pages
 
         return {
           archives: archives,
