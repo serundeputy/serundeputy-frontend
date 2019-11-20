@@ -26,41 +26,49 @@
         </b-col>
       </b-row>
     </b-container>
+    <AppPager :pager-data="pagerData" />
   </div>
 </template>
 <script>
 import AppHeader from '~/components/AppHeader/AppHeader'
 import AppFooter from '~/components/AppFooter/AppFooter'
+import AppPager from '~/components/AppPager'
 
 export default {
   layout: 'homepage',
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    AppPager
   },
   data() {
     return {
       archives: {},
       numResults: {},
-      numPages: {}
+      numPages: {},
+      pagerData: {}
     }
   },
-  asyncData({ app }) {
+  asyncData({ app, route }) {
+    const resUrl = route.query.page
+      ? `/api/v2/views/archives_api/page?page=${route.query.page}`
+      : '/api/v2/views/archives_api/page'
+
     return app.$axios
-      .get('/api/views/archives_api', {})
+      .get(resUrl, {})
       .then(res => {
         const archives = res.data.results
-        const numResults = res.data.count
-        let numPages = res.data.count / 5
-        if (numResults % 5 == 0) {
-          numPages = numPages
-        } else {
-          numPages = Math.floor(numPages) + 1
-        }
+        const currentPage = res.data.current_page
+        const totalPages = Math.ceil(
+          res.data.total_items / res.data.items_per_page
+        )
+
         return {
           archives: archives,
-          numResults: numResults,
-          numPages: numPages
+          pagerData: {
+            currentPage,
+            totalPages
+          }
         }
       })
       .catch(err => {
