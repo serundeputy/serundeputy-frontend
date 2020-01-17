@@ -5,6 +5,15 @@
         md="12">
         <h1 class="post__title">{{ post.title }}</h1>
       </b-row>
+      <b-row
+        md="12"
+        class="dates">
+        <span class="pub">Published: {{ niceDate(created) }}</span>
+        <span
+          class="changed">
+          Updated: {{ niceDate(changed) }}
+        </span>
+      </b-row>
       <b-row>
         <b-col
           md="12"
@@ -16,6 +25,7 @@
 </template>
 <script>
 import imgUrl from '~/plugins/inContentImagesUrl'
+import niceDate from '~/plugins/niceDate'
 
 export default {
   layout: 'homepage',
@@ -24,12 +34,15 @@ export default {
     return {}
   },
   asyncData({ app, params }) {
-    console.log('\n\ngff is the best\n\n\n\n', params)
     return app.$axios
       .get(`/api/router/${params.name}`, {})
       .then(res => {
+        const created = new Date(res.data.created * 1000)
+        const changed = new Date(res.data.changed * 1000)
         return {
-          post: res.data
+          post: res.data,
+          created,
+          changed
         }
       })
       .catch(err => {
@@ -39,14 +52,23 @@ export default {
   methods: {
     imgUrl(content) {
       return imgUrl.imgUrl(content)
+    },
+    niceDate(date, format) {
+      return niceDate.niceDate(date, format)
     }
   }
 }
 </script>
 <style scoped>
 h1 {
-  margin-bottom: 32px;
+  margin-bottom: 12px;
   text-align: center;
+}
+.dates {
+  margin-bottom: 32px;
+}
+.dates .pub {
+  margin-right: 33px;
 }
 .page-content {
   margin-top: 13px;
