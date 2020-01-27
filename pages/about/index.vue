@@ -1,5 +1,7 @@
 <template>
-  <div class="about-page">
+  <div
+    id="maincontent"
+    class="about-page">
     <b-container>
       <b-row>
         <b-col lg="12">

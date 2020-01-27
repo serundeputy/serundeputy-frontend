@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="maincontent">
     <b-container
       class="posts-container"
     >
@@ -11,7 +11,9 @@
           class="post-data"
         >
           <div class="post-title">
-            <a :href="`/${post._field_data.nid.entity.path.alias}`">
+            <a 
+              :href="`/${post._field_data.nid.entity.path.alias}`"
+              :name="`${post.node_title}`">
               {{ post.node_title }}
             </a>
           </div>
@@ -19,7 +21,9 @@
             class="post-body"
             v-html="firstPara(post._field_data.nid.entity.body.und[0].value)"/>
           <div class="post-read-more">
-            <a :href="`/${post._field_data.nid.entity.path.alias}`">
+            <a
+              :href="`/${post._field_data.nid.entity.path.alias}`"
+              name="read more">
               *read more
             </a>
           </div>

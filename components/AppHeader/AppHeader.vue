@@ -1,5 +1,11 @@
 <template>
   <div class="site-header">
+    <a
+      class="skip-link"
+      href="#maincontent"
+      name="skip to main">
+      Skip to main
+    </a>
     <b-container
       class="header-container">
       <b-row>

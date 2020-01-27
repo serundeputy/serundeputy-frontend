@@ -1,7 +1,11 @@
 <template>
   <div class="site-logo">
-    <a href="/">
-      <img src="~/assets/serundeputyLogo.png">
+    <a
+      href="/"
+      name="back to homepage">
+      <img
+        src="~/assets/serundeputyLogo.png"
+        alt="Seruneputy site logo { s }">
     </a>
   </div>
 </template>

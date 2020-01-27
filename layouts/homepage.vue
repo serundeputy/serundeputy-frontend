@@ -41,4 +41,7 @@ export default {
 }
 </script>
 <style>
+a {
+  color: #004ea3;
+}
 </style>

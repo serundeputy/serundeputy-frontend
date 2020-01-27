@@ -1,6 +1,8 @@
 <template>
   <div class="site-hashtag">
-    <img src="~/assets/hashtag.png">
+    <img
+      src="~/assets/hashtag.png"
+      alt="">
   </div>
 </template>
 <style scoped>
