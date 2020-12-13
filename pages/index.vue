@@ -3,6 +3,80 @@
     <b-container
       class="posts-container"
     >
+      <b-row class="covid-rolling-data">
+        <b-col md="12">
+          <div class="covid-title">
+            Two Week Rolling Averages of MA Covid-19 Data
+          </div>
+        </b-col>
+      </b-row>
+      <b-row class="covid-rolling-data-row">
+        <b-col
+          class="covid-plot"
+          md="8">
+          <img
+            src="~/assets/covid-data/december-12-2020/MA-plot.png"
+            width="100%">
+        </b-col>
+        <b-col
+          class="covid-mean"
+          md="4">
+          <table>
+            <tr>
+              <td> Prev. Two Week Mean: </td>
+              <td> {{ MA12.prevTwoWkMean }} </td>
+            </tr>
+            <tr>
+              <td> Two Week Mean: </td>
+              <td> {{ MA12.twoWkMean }} </td>
+            </tr>
+            <tr>
+              <td> Delta: </td>
+              <td> {{ MA12.delta }} </td>
+            </tr>
+          </table>
+        </b-col>
+        <b-col md="12">
+          <div class="covid-footer">
+            Source Data: <a href="https://mass.gov">Mass.gov</a>
+          </div>
+        </b-col>
+      </b-row>
+      <div class="hashtag">
+        <AppHashtag/>
+      </div>
+      <b-row class="covid-rolling-data-row">
+        <b-col
+          class="covid-plot"
+          md="8">
+          <img
+            src="~/assets/covid-data/december-11-2020/MA-plot.png"
+            width="100%">
+        </b-col>
+        <b-col
+          class="covid-mean"
+          md="4">
+          <table>
+            <tr>
+              <td> Prev. Two Week Mean: </td>
+              <td> {{ MA11.prevTwoWkMean }} </td>
+            </tr>
+            <tr>
+              <td> Two Week Mean: </td>
+              <td> {{ MA11.twoWkMean }} </td>
+            </tr>
+            <tr>
+              <td> Delta: </td>
+              <td> {{ MA11.delta }} </td>
+            </tr>
+          </table>
+        </b-col>
+        <b-col md="12">
+          <div class="covid-footer">
+            Source Data: <a href="https://mass.gov">Mass.gov</a>
+          </div>
+        </b-col>
+      </b-row>
       <b-row>
         <b-col
           v-for="post in posts"
@@ -37,6 +111,8 @@
 <script>
 import imgUrl from '~/plugins/inContentImagesUrl'
 import AppHashtag from '~/components/AppHashtag'
+import MA11 from '~/assets/covid-data/december-11-2020/MA.json'
+import MA12 from '~/assets/covid-data/december-12-2020/MA.json'
 
 export default {
   layout: 'homepage',
@@ -48,7 +124,9 @@ export default {
       firstTwo: {},
       lastTwo: {},
       numResults: {},
-      tweets: 'gff is tweeter bst at.'
+      tweets: 'gff is tweeter bst at.',
+      MA11: MA11,
+      MA12: MA12
     }
   },
   async asyncData({ app }) {
@@ -66,6 +144,19 @@ export default {
 }
 </script>
 <style scoped>
+.covid-rolling-data {
+  padding: 1rem;
+  background-color: #eee;
+}
+.covid-rolling-data-row {
+  padding: 1rem;
+  background-color: #eee;
+}
+.covid-title {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
 .posts-container {
   padding: 14px;
 }
