@@ -124,6 +124,7 @@
   color: #4c4b63;
 }
 .header__icons .lando-icon a,
+.header__icons .kaggle-icon a,
 .header__icons .backdrop-icon a,
 .header__icons .drupal-icon a,
 .header__icons .twitter-icon a,
