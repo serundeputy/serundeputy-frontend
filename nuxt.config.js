@@ -1,7 +1,6 @@
 const pkg = require('./package')
 
 module.exports = {
-  mode: 'universal',
 
   /*
   ** Headers of the page
@@ -80,6 +79,9 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+    },
+    babel: {
+      compact: true
     }
   }
 }
