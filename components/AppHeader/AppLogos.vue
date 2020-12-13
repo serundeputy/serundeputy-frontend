@@ -21,6 +21,14 @@
                 alt="Lando Logo">
             </a>
           </div>
+          <div class="python-icon">
+            <i class="fab fa-python"/>
+          </div>
+          <div class="kaggle-icon">
+            <a href="https://www.kaggle.com/serundeputy">
+              <i class="fab fa-kaggle"/>
+            </a>
+          </div>
           <div class="php-icon">
             <i class="fab fa-php"/>
           </div>
@@ -40,9 +48,6 @@
               name="Drupal serundeputy profile">
               <i class="fab fa-drupal"/>
             </a>
-          </div>
-          <div class="laravel-icon">
-            <i class="fab fa-laravel"/>
           </div>
           <div class="nodejs-icon">
             <i class="fab fa-node"/>
@@ -102,6 +107,8 @@
 }
 .header__icons .linux-icon,
 .header__icons .lando-icon,
+.header__icons .python-icon,
+.header__icons .kaggle-icon,
 .header__icons .php-icon,
 .header__icons .backdrop-icon,
 .header__icons .drupal-icon,
