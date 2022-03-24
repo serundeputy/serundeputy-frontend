@@ -34,3 +34,5 @@ yarn run build
 # start nuxt server and run in background.
 nohup yarn start &
 ```
+
+gff
